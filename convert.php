@@ -12,6 +12,10 @@ $xml_content = file_get_contents($_FILES['xml_file']['tmp_name']);
 $xml_content = simplexml_load_string($xml_content);
 
 
+if (!file_exists(__DIR__ . '/files')){
+    mkdir(__DIR__ . '/files');
+}
+
 # delete old files first
 
 foreach (glob(__DIR__ . '/files/*') as $file){
